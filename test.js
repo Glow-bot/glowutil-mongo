@@ -1,6 +1,8 @@
 const DB = require("./index.js")
-DB.connect(``).then(async()=>{
+const url = ""
+DB.connect(url).then(async()=>{
     const db = new DB.getDB("test")
-    db.delete("test",{name:"c"})
-    //db.get("test").then(a=>console.log(a))
+    db.get("test",{name:"Googlefan",character:"lazy"}).then(()=>{
+        db.getAll().then(data=>console.log(data))
+    })
 })

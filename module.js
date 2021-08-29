@@ -58,8 +58,13 @@ module.exports = {
                 if(!data)return null
                 return JSON.parse(data.value)
             }
-            async filter(name){
-                const data = await this.model.findOne({name:name})
+            async getAll(){
+                const data = await this.model.find({})
+                const map = new Map()
+                data.map(a=>{
+                    map.set(a.name,JSON.parse(a.value))
+                })
+                return map
             }
         }
     },

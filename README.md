@@ -28,7 +28,11 @@ db.delete("test")
 db.getByIndex("test")
 ```
 you may know what an index is from [here]("#index")
-
+- getAll
+```js
+db.getAll().then(data=>console.log(data))
+//Map(2) { 'test' => 'a', 'help' => 'ping' }
+```
 ## index
 index is a keyword for finding datas.
 for example, you've setted a data by;
