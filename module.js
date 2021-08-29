@@ -28,10 +28,11 @@ module.exports = {
                         data.name = name
                         data.value = String(value)
                         data.indexKey = String(value)
+                    }else{
+                        data.name = String(name)
+                        data.value = JSON.stringify(value)
+                        data.indexKey = indexKey
                     }
-                    data.name = String(name)
-                    data.value = JSON.stringify(value)
-                    data.indexKey = indexKey
                     data.save()
             }
             async dget(name){
@@ -48,8 +49,14 @@ module.exports = {
                 if(!data)return null
                 data.remove()
             }
+            async dgetByIndex(name){
+                const data = await this.model.findOne({indexKey:name})
+                return data
+            }
             async getByIndex(name){
-
+                const data = await this.dgetByIndex(name)
+                if(!data)return null
+                return JSON.parse(data.value)
             }
             async filter(name){
                 const data = await this.model.findOne({name:name})
