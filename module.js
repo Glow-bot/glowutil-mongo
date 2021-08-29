@@ -18,22 +18,22 @@ module.exports = {
                 this.model = mongo.model(this.name, this.schema)
             }
             async set(name,value,indexKey){
-                    if(typeof(name) !== "string")throw new Error("key must be a string")
-                    const data = await this.dget(name) || new this.model()
-                    if(typeof(data.value) === "string"){
-                        data.name = name
-                        data.value = value
-                        data.indexKey = value
-                    }else if(typeof(data.value) === "number"){
-                        data.name = name
-                        data.value = String(value)
-                        data.indexKey = String(value)
-                    }else{
-                        data.name = String(name)
-                        data.value = JSON.stringify(value)
-                        data.indexKey = indexKey || "null"
-                    }
-                    data.save()
+                if(typeof(name) !== "string")throw new Error("key must be a string")
+                const data = await this.dget(name) || new this.model()
+                if(typeof(value) === "string"){
+                    data.name = name
+                    data.value = value
+                    data.indexKey = value
+                }else if(typeof(value) === "number"){
+                    data.name = name
+                    data.value = String(value)
+                    data.indexKey = String(value)
+                }else{
+                    data.name = String(name)
+                    data.value = JSON.stringify(value)
+                    data.indexKey = indexKey || "null"
+                }
+                data.save()
             }
             async dget(name){
                 const data = await this.model.findOne({name:name})
