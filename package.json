@@ -1,0 +1,17 @@
+{
+  "name": "@glowutil/mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Googlefan256 <info@glow-bot.com> (https://glow-bot.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "@keyv/mongo": "^1.1.0",
+    "keyv": "^4.0.3",
+    "mongoose": "^6.0.0"
+  }
+}
