@@ -31,7 +31,7 @@ module.exports = {
                     }else{
                         data.name = String(name)
                         data.value = JSON.stringify(value)
-                        data.indexKey = indexKey
+                        data.indexKey = indexKey || "null"
                     }
                     data.save()
             }
