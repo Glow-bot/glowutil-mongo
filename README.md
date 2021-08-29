@@ -1,8 +1,8 @@
-# @glowutil/mongo
+# mongo-glow
 ## connecting
 ```js
 const url = //your_database_url
-const DB = require("@glowutil/mongo")
+const DB = require("mongo-glow")
 DB.connect(url).then(async()=>{
     const db = new DB.getDB("test")
 })
