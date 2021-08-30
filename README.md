@@ -1,9 +1,9 @@
 # mongo-glow
 ## connecting
 ```js
-const url = //your_database_url
+const uri = //your_database_uri
 const DB = require("mongo-glow")
-DB.connect(url).then(async()=>{
+DB.connect(uri).then(async()=>{
     const db = new DB.getDB("test")
 })
 ```

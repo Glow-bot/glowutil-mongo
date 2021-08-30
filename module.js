@@ -22,11 +22,11 @@ module.exports = {
                 const data = await this.dget(name) || new this.model()
                 if(typeof(value) === "string"){
                     data.name = name
-                    data.value = value
+                    data.value = JSON.stringify(value)
                     data.indexKey = value
                 }else if(typeof(value) === "number"){
                     data.name = name
-                    data.value = String(value)
+                    data.value = JSON.stringify(value)
                     data.indexKey = String(value)
                 }else{
                     data.name = String(name)
